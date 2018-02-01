@@ -1,0 +1,32 @@
+description = "1 Column Blog"
+
+[viewBag]
+==
+{% for post in posts %}
+<div class="row mt-5 wow fadeIn" data-wow-delay="0.2s">
+    <!--Featured image-->
+    {% set image = post.featured_images.first %}
+    <div class="col-lg-7">
+        <div class="view overlay hm-white-light z-depth-1 rounded">
+            <img data-src="{{ image.filename }}" src="{{ image.path }}" class="img-fluid" alt="{{ image.description }}">
+            <a href="{{ post.url }}">
+                <div class="mask"></div>
+            </a>
+        </div>
+    </div>
+    <!--/.Featured image-->
+
+    <!--Post excerpt-->
+    <div class="col-lg-5">
+        <a href="{{ post.url }}">
+            <h2 class="post-title font-bold">{{ post.title }}</h2>
+        </a>
+        <h6 class="dark-grey-text font-bold font-small">{{ post.published_at|date('M d, Y') }}</h6>
+        <p class="my-4 dark-grey-text">{{ post.summary|raw }}</p>
+        <div class="read-more">
+            <a href="{{ post.url }}" class="btn btn-primary btn-md">Read more</a>
+        </div>
+    </div>
+    <!--/.Post excerpt-->
+</div>
+{% endfor %}

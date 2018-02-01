@@ -1,0 +1,52 @@
+description = "4 Column Footer"
+
+[viewBag]
+==
+<!--Footer-->
+<footer class="page-footer center-on-small-only">
+
+    <!--Footer links-->
+    <div class="container-fluid">
+        <div class="row mt-3">
+            <!--First column-->
+            <div class="col-lg-3 col-md-6 ml-auto">
+                {% content 'footer/column1.htm' %}
+            </div>
+            <!--/.First column-->
+            <hr class="w-100 clearfix d-sm-none">
+            <!--Second column-->
+            <div class="col-lg-2 col-md-6 ml-auto">
+                {% content 'footer/column2.htm' %}
+            </div>
+            <!--/.Second column-->
+            <hr class="w-100 clearfix d-sm-none">
+            <!--Third column-->
+            <div class="col-lg-2 col-md-6 ml-auto">
+                {% content 'footer/column3.htm' %}
+            </div>
+            <!--/.Third column-->
+            <hr class="w-100 clearfix d-sm-none">
+            <!--Fourth column-->
+            <div class="col-lg-2 col-md-6 ml-auto">
+                {% content 'footer/column4.htm' %}
+            </div>
+            <!--/.Fourth column-->
+        </div>
+    </div>
+    <!--/.Footer links-->
+
+    <hr>
+
+    {% content 'footer/CTA.htm' %}
+
+    <!--Copyright-->
+    <div class="footer-copyright">
+        <div class="container-fluid">
+            © {{ 'now'|date('Y') }} Copyright: <a href="https://www.MDBootstrap.com/?utm_source=4e323a&utm_id=4e323a"> MDBootstrap.com </a>
+
+        </div>
+    </div>
+    <!--/.Copyright-->
+
+</footer>
+<!--/.Footer-->

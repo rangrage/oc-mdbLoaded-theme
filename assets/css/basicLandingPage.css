@@ -1,0 +1,21 @@
+.view {
+    height: 100%;
+}
+
+@media only screen and (max-width: 667px) {
+    .display-3 {
+        font-size: 3rem;
+    }
+}
+@media only screen and (max-width: 767px) {
+    .navbar {
+        background-color: #1C2331;
+    }
+    .display-3 {
+        font-size: 2rem;
+        margin-top: 5rem;
+    }
+    h3 {
+        font-size: 1rem;
+    }
+}

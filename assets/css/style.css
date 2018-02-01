@@ -1,0 +1,58 @@
+/* Your custom styles */
+/* Navigation*/
+
+.navbar {
+    background-color: transparent;
+}
+
+.nav-blue {
+    background-color: #2b3b68;
+}
+
+.scrolling-navbar {
+    -webkit-transition: background .5s ease-in-out, padding .5s ease-in-out;
+    -moz-transition: background .5s ease-in-out, padding .5s ease-in-out;
+    transition: background .5s ease-in-out, padding .5s ease-in-out;
+}
+
+.navbar .btn-group .dropdown-menu a:hover {
+    color: #000 !important;
+}
+.navbar .btn-group .dropdown-menu a:active {
+    color: #fff !important;
+}
+.top-nav-collapse {
+    background-color: #2b3b68;
+}
+
+.view {
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+footer.page-footer {
+    background-color: #2b3b68;
+    margin-top: -1px;
+}
+
+/*Call to action*/
+.flex-center {
+    color: #fff;
+}
+@media only screen and (max-width: 768px) {
+    .navbar {
+        background-color: #2b3b68;
+    }
+
+}
+
+@media only screen and (max-width: 768px) {
+    .display-3 {
+        font-size: 3rem;
+        margin-top: 4rem;
+    }
+    h3 {
+        font-size: 1.3rem;
+    }
+}

@@ -1,0 +1,47 @@
+html,
+body,
+.view {
+    height: 100%;
+}
+
+@media only screen and (max-width: 767px) {
+    .display-3 {
+        font-size: 2rem;
+        margin-top: 6rem;
+    }
+    h3 {
+        font-size: 1rem;
+    }
+}
+
+@media only screen and (max-width: 667px) {
+    .display-3 {
+        font-size: 3rem;
+    }
+}
+
+/* Carousel*/
+.carousel,
+.carousel-item,
+.active {
+    height: 100%;
+}
+
+.carousel-inner {
+    height: 100%;
+}
+
+/*Caption*/
+
+.flex-center {
+    color: #fff;
+}
+
+@media (min-width: 776px) {
+    .carousel .view ul li {
+        display: inline;
+    }
+    .carousel .view .full-bg-img ul li .flex-item {
+        margin-bottom: 1.5rem;
+    }
+}

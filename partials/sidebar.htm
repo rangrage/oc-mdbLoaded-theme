@@ -1,0 +1,15 @@
+description = "The Sidebar"
+
+[viewBag]
+==
+<div id="sidebar" class="p-2">
+    {% if this.page.id == 'post' %}
+        {% partial 'getBlogCategories' %}
+    {% else %}
+        {% partial 'sideMenu' %}
+    {% endif %}
+
+    {# Other side bar components #}
+    {# can be added here as well #}
+    {# Add as many as you like #}
+</div>

@@ -1,0 +1,26 @@
+description = "With Sidebar Column"
+
+[staticPage]
+useContent = 1
+default = 1
+==
+{% partial 'site/head' %}
+{% partial 'site/nav' %}
+
+<div class="container mt-2 px-sm-3">
+    <div class="row no-gutters">
+        <div class="col-md-3 d-none d-md-block">
+            {% partial 'sidebar' %}
+        </div>
+        <div class="col-md-9 pt-1 p-sm-3">
+            <h4 class="h4-responsive">{{ this.page.title }}</h4>
+            <hr>
+            {% page %}
+        </div>
+        <div class="col-md-3 pt-3 d-md-none d-sm-block">
+            {% partial 'sidebar' %}
+        </div>
+    </div>
+</div>
+
+{% partial 'site/footer' %}

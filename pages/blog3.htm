@@ -1,0 +1,19 @@
+title = "Blog3"
+url = "/blog3/:category/:page?"
+layout = "noSidebar"
+is_hidden = 0
+
+[blogPosts]
+pageNumber = "{{ :page }}"
+categoryFilter = "{{ :category }}"
+postsPerPage = 10
+noPostsMessage = "No posts found"
+sortOrder = "published_at desc"
+categoryPage = "blog"
+postPage = "post"
+==
+{% set posts = blogPosts.posts %}
+
+{% partial 'blog/3column' %}
+
+{% partial 'blog/pagination' %}

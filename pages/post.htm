@@ -1,0 +1,12 @@
+title = "Post"
+url = "/post/:slug"
+layout = "withSidebar"
+is_hidden = 0
+
+[blogPost]
+slug = "{{ :slug }}"
+categoryPage = "blog"
+==
+{% set post = blogPost.post %}
+
+{% partial 'blog/post' %}

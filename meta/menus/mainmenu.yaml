@@ -1,0 +1,61 @@
+name: MainMenu
+items:
+    -
+        title: main
+        nesting: ''
+        type: all-static-pages
+        url: ''
+        code: ''
+        reference: ''
+        cmsPage: ''
+        replace: '1'
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+    -
+        title: 'Blog Pages'
+        type: cms-page
+        code: ''
+        reference: blog-homepage
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+        items:
+            -
+                title: 'Blog Homepage'
+                type: cms-page
+                code: ''
+                reference: blog-homepage
+                viewBag:
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'
+            -
+                title: '1 Column'
+                type: cms-page
+                code: ''
+                reference: blog
+                viewBag:
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'
+            -
+                title: '2 Column'
+                type: cms-page
+                code: ''
+                reference: blog2
+                viewBag:
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'
+            -
+                title: '3 Column'
+                type: cms-page
+                code: ''
+                reference: blog3
+                viewBag:
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'

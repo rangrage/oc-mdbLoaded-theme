@@ -1,0 +1,24 @@
+description = "Blog Categories"
+
+[viewBag]
+==
+{% if __SELF__.categories %}
+<div class="widget-wrapper wow fadeIn" data-wow-delay="0.4s">
+    <h4 class="font-bold dark-grey-text">Categories:</h4>
+    <br>
+    <div class="list-group">
+        {% set categories = __SELF__.categories %}
+        {% set currentCategorySlug = __SELF__.currentCategorySlug %}
+        
+        {% for category in categories %}
+            {% set postCount = category.post_count %}
+                <a class="font-bold list-group-item {% if category.slug == currentCategorySlug %}active{% endif %}"
+                   href="{{ category.url }}">{{ category.name }} 
+                    {% if postCount %}
+                        <span class="badge badge-primary float-right">{{ postCount }}</span>
+                    {% endif %}
+                </a>
+        {% endfor %}
+    </div>
+</div>
+{% endif %}

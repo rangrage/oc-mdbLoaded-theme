@@ -1,0 +1,41 @@
+description = "Scrolling Nav - No Dropdown"
+
+[viewBag]
+
+[staticMenu]
+code = "mainmenu"
+==
+<!--Navbar-->
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar">
+
+    <!-- Navbar brand -->
+    <a class="navbar-brand" href="#">Navbar</a>
+
+    <!-- Collapse button -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+        aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        {% if staticMenu.menuItems %}
+        {% set items = staticMenu.menuItems %}
+        <!-- Links -->
+        <ul class="navbar-nav mr-auto">
+            {% for item in items %}
+                <li class="nav-item {% if this.page.title == item.title %} active {% endif %}">
+                    <a class="nav-link" href="{{ item.url }}">{{ item.title }} {% if this.page.title == item.title %} <span class="sr-only">(current)</span> {% endif %}</a>
+                </li>
+            {% endfor %}
+        {% endif %}
+        </ul>
+        <!-- Links -->
+
+        <!-- Search form -->
+        <form class="form-inline">
+            <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+        </form>
+    </div>
+    <!-- Collapsible content -->
+
+</nav>
+<!--/.Navbar-->

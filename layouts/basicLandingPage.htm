@@ -1,0 +1,204 @@
+description = "Basic Landing Page"
+
+[staticPage]
+useContent = 0
+default = 0
+==
+<?php
+function onStart()
+{
+    $this->addCss('assets/css/basicLandingPage.css');
+}
+?>
+==
+{% partial 'site/head' %}
+{% partial 'site/scrollingNavbar' %}
+
+{variable name="introTitle" label="Intro Title" tab="Intro" type="text"}{/variable}
+{variable name="tagline" label="Tagline" tab="Intro" type="text"}{/variable}
+{variable name="btn1Text" label="Button 1 Text" tab="Intro" type="text"}{/variable}
+{variable name="btn1Link" label="Button 1 Link" tab="Intro" type="text"}{/variable}
+{variable name="btn2Text" label="Button 2 Text" tab="Intro" type="text"}{/variable}
+{variable name="btn2Link" label="Button 2 Link" tab="Intro" type="text"}{/variable}
+{variable name="bgImage" label="Background Image" tab="Intro" type="mediafinder" mode="image"}{/variable}
+
+<!--Intro Section-->
+<section class="view intro-1 hm-black-slight" style="background: url('https://mdbootstrap.com/img/Photos/Others/images/59.jpg')no-repeat center center; background-size: cover;">
+    <div class="full-bg-img flex-center">
+        <div class="container">
+            <ul>
+                <li>
+                    <h1 class="display-3 font-bold wow fadeInDown" data-wow-delay="0.2s">{{ introTitle }}</h1>
+                </li>
+                <li>
+                    <h4 class="mt-4 mb-5 wow fadeInDown">{{ tagline }}</h4>
+                </li>
+                <li>
+                    <a target="_blank" href="{{ btn1Link }}" class="btn btn-indigo btn-lg wow fadeInLeft" data-wow-delay="0.2s"
+                        rel="nofollow">{{ btn1Text }}</a>
+                    <a target="_blank" href="{{ btn2Link }}" class="btn btn-outline-white btn-lg wow fadeInRight"
+                        data-wow-delay="0.2s" rel="nofollow">{{ btn2Text }}</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<!-- Main container-->
+<div class="container">
+
+    {variable name="section1Title" label="Title" tab="Section One" type="text"}{/variable}
+    {variable name="section1Text" label="Content" tab="Section One" type="richeditor"}{/variable}
+    <div class="divider-new pt-5">
+        <h2 class="h2-responsive indigo-text mx-4 font-bold wow fadeIn" data-wow-delay="0.2s">
+            <strong>{{ section1Title }}</strong>
+        </h2>
+    </div>
+    <!--Section: About-->
+    <section id="about" class="text-center wow fadeIn" data-wow-delay="0.2s">
+        {{ section1Text|raw }}
+    </section>
+    <!--Section: About-->
+
+    {variable name="section2Title" label="Title" tab="Section Two" type="text"}{/variable}
+    <div class="divider-new pt-5">
+        <h2 class="h2-responsive indigo-text mx-4 font-bold wow fadeIn">{{ section2Title }}</h2>
+    </div>
+
+    <!--Section: Best features-->
+    <section id="best-features">
+
+        <div class="row pt-3">
+            {repeater tab="Section Two" name="Cards" prompt="Add another Card"}
+            {variable name="cardImg" label="Card Image" type="mediafinder" mode="image"}{/variable}
+            {variable name="cardTitle" label="Title" type="text"}{/variable}
+            {variable name="cardText" label="Card Text" type="text"}{/variable}
+            {variable name="cardURL" label="URL" type="text"}{/variable}
+            <div class="col-lg-3 mb-r">
+                {% if fields.cardURL != '' %}<a href="{{ fields.cardURL }}">{% endif %}
+                    <!--Card-->
+                    <div class="card hoverable wow fadeIn">
+
+                        <!--Card image-->
+                        <img class="img-fluid"
+                             src="{% if fields.cardImg == '' %}https://mdbootstrap.com/img/Photos/Others/images/72.jpg{% else %}{{ fields.cardImg|media }}{% endif %}"
+                             alt="Card image cap">
+
+                        <!--Card content-->
+                        <div class="card-body">
+                            <!--Title-->
+                            <h4 class="card-title text-center">{{ fields.cardTitle }}</h4>
+                            <hr>
+                            <!--Text-->
+                            <p class="card-text">{{ fields.cardText }}</p>
+                        </div>
+
+                    </div>
+                    <!--/.Card-->
+                    {% if fields.cardURL != '' %}</a>{% endif %}
+            </div>
+            {/repeater}
+        </div>
+
+    </section>
+    <!--/Section: Best features-->
+
+    {variable name="section3Title" label="Title" tab="Section Three" type="text"}{/variable}
+    {variable name="section3Text" label="Intro Text" tab="Section Three" type="richeditor"}{/variable}
+    <div class="divider-new pt-3">
+        <h2 class="h2-responsive indigo-text mx-4 font-bold wow fadeIn">{{ section3Title }}</h2>
+    </div>
+
+    <!--Section: Features v.1-->
+    <section class="section feature-box text-center">
+
+        <!--Section description-->
+        <div class="section-description lead grey-text mb-5 mx-lg-5">{{ section3Text|raw }}</div>
+
+        <!--Grid row-->
+        <div class="row text-center">
+            {variable name="box1Icon" label="Box1 Icon class" tab="Section Three" type="text"}{/variable}
+            {variable name="box1Title" label="Box1 Title" tab="Section Three" type="text"}{/variable}
+            {variable name="box1Text" label="Box1 Text" tab="Section Three" type="text"}{/variable}
+            <!--Grid column-->
+            <div class="col-md-4 mb-r">
+                <i class="{{ box1Icon }}"></i>
+                <h5 class="font-bold mt-3">{{ box1Title }}</h5>
+                <p class="grey-text">{{ box1Text }}</p>
+            </div>
+            <!--Grid column-->
+
+            {variable name="box2Icon" label="Box2 Icon class" tab="Section Three" type="text"}{/variable}
+            {variable name="box2Title" label="Box2 Title" tab="Section Three" type="text"}{/variable}
+            {variable name="box2Text" label="Box2 Text" tab="Section Three" type="text"}{/variable}
+            <!--Grid column-->
+            <div class="col-md-4 mb-r">
+                <i class="{{ box2Icon }}"></i>
+                <h5 class="font-bold mt-3">{{ box2Title }}</h5>
+                <p class="grey-text">{{ box2Text }}</p>
+            </div>
+            <!--Grid column-->
+
+            {variable name="box3Icon" label="Box3 Icon class" tab="Section Three" type="text"}{/variable}
+            {variable name="box3Title" label="Box3 Title" tab="Section Three" type="text"}{/variable}
+            {variable name="box3Text" label="Box3 Text" tab="Section Three" type="text"}{/variable}
+            <!--Grid column-->
+            <div class="col-md-4 mb-r">
+                <i class="{{ box3Icon }}"></i>
+                <h5 class="font-bold mt-3">{{ box3Title }}</h5>
+                <p class="grey-text">{{ box3Text }}</p>
+            </div>
+            <!--Grid column-->
+
+        </div>
+        <!--Grid row-->
+
+    </section>
+    <!--Section: Features v.1-->
+
+    {variable name="contactAddress" label="Address" tab="Contact Us" type="text"}{/variable}
+    {variable name="contactTel" label="Telephone" tab="Contact Us" type="text"}{/variable}
+    {variable name="contactEmail" label="Email" tab="Contact Us" type="text"}{/variable}
+    {variable name="contactMap" label="Map iFrame" tab="Contact Us" type="textarea"}{/variable}
+    <div class="divider-new">
+        <h2 class="h2-responsive indigo-text mx-4 font-bold  wow fadeIn">Contact us</h2>
+    </div>
+
+    <!--Section: Contact-->
+    <section id="contact pb-5">
+        <div class="row">
+            <!--First column-->
+            <div class="col-md-8 mb-5">
+                <div class="embed-responsive embed-responsive-16by9 z-depth-1 wow fadeIn">
+                    {{ contactMap|raw }}
+                </div>
+            </div>
+            <!--/First column-->
+
+            <!--Second column-->
+            <div class="col-md-4">
+                <ul class="text-center list-unstyled">
+                    <li class="wow fadeIn" data-wow-delay="0.2s">
+                        <i class="fa fa-map-marker indigo-text fa-2x"></i>
+                        <p>{{ contactAddress }}</p>
+                    </li>
+
+                    <li class="wow fadeIn mt-5 pt-2" data-wow-delay="0.3s">
+                        <i class="fa fa-phone indigo-text fa-2x"></i>
+                        <p>{{ contactTel }}</p>
+                    </li>
+
+                    <li class="wow fadeIn mt-5 pt-2" data-wow-delay="0.4s">
+                        <i class="fa fa-envelope indigo-text fa-2x"></i>
+                        <p>{{ contactEmail }}</p>
+                    </li>
+                </ul>
+            </div>
+            <!--/Second column-->
+        </div>
+    </section>
+    <!--Section: Contact-->
+</div>
+<!--/ Main container-->
+
+{% partial 'site/footer' %}

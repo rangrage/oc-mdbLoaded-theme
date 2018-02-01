@@ -1,0 +1,45 @@
+description = "Blog Post"
+
+[viewBag]
+==
+<div class="container">
+    <!--row-->
+    <div class="row wow fadeIn" data-wow-delay="0.2s">
+        <div class="col-md-12">
+            <!--Card-->
+            <div class="card">
+
+                {% set image = post.featured_images.first %}
+                <!--Card image-->
+                <div class="view overlay hm-white-slight">
+                    <img src="{{ image.path }}" class="img-fluid" alt="{{ image.description }}">
+                    <div class="mask"></div>
+                </div>
+
+                <!--Card content-->
+                <div class="card-body mb-3">
+                    <!--Title-->
+                    <h3 class="card-title text-center mt-2 pb-4">
+                        <strong>{{ post.title}}</strong>
+                    </h3>
+                    <!--Text-->
+                    <div class="card-text">
+                        {{ post.content_html|raw }}
+                    </div>
+                </div>
+
+                <dif class="card-footer text-muted">
+                    Posted{% if post.categories.count %} in
+                        {% for category in post.categories %}
+                            <a href="{{ category.url }}">{{ category.name }}</a>{% if not loop.last %}, {% endif %}
+                        {% endfor %}
+                    {% endif %}
+                    <small class="float-right">{{ post.published_at|date('d M Y') }}</small>
+                </dif>
+
+            </div>
+            <!--/.Card-->
+        </div>
+    </div>
+    <!--/.row-->
+</div>

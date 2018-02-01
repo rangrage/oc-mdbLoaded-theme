@@ -1,0 +1,26 @@
+/* Necessary for full page carousel*/
+
+/* Carousel*/
+.carousel {
+    height: 50%;
+}
+
+@media (max-width: 776px) {
+    .carousel {
+        height: 100%;
+    }
+}
+
+.carousel-item,
+.active {
+    height: 100%;
+}
+
+.carousel-inner {
+    height: 100%;
+}
+
+/*Caption*/
+.flex-center {
+    color: #fff;
+}

@@ -1,0 +1,8 @@
+name: 'MDB Loaded'
+description: 'Starter theme with some basic MDB Layouts loaded.'
+author: Zanor
+homepage: ''
+code: zanor-mdb-loaded
+require:
+    - RainLab.Pages
+    - RainLab.Blog

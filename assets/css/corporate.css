@@ -1,0 +1,32 @@
+main {
+    padding-top: 3rem;
+    padding-bottom: 2rem;
+}
+
+section.view {
+    height: 100%;
+}
+
+.extra-margins {
+    margin-top: 1rem;
+    margin-bottom: 2.5rem;
+}
+
+@media (max-width: 768px) {
+    .display-1 {
+        font-size: 4rem;
+    }
+}
+
+.spacing {
+    letter-spacing: 3px;
+}
+
+@media (max-width: 740px) {
+    .full-height,
+    .full-height body,
+    .full-height header,
+    .full-height header .view {
+        height: 700px;
+    }
+}

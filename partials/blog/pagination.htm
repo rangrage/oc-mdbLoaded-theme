@@ -1,0 +1,33 @@
+description = "Blog Pagination"
+
+[viewBag]
+==
+{% if posts.lastPage > 1 %}
+    <nav class="my-4 d-flex justify-content-center wow fadeIn" data-wow-delay="0.2s">
+        <ul class="pagination">
+            {% if posts.currentPage > 1 %}
+                <li class="page-item">
+                    <a class="page-link" href="{{ this.page.baseFileName|page({ (pageParam): (posts.currentPage-1) }) }}" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                </li>
+            {% endif %}
+
+            {% for page in 1..posts.lastPage %}
+                <li class="page-item {{ posts.currentPage == page ? 'active' : null }}">
+                    <a class="page-link" href="{{ this.page.baseFileName|page({ (pageParam): page }) }}">{{ page }}</a>
+                </li>
+            {% endfor %}
+
+            {% if posts.lastPage > posts.currentPage %}
+                <li class="page-item">
+                    <a class="page-link" href="{{ this.page.baseFileName|page({ (pageParam): (posts.currentPage+1) }) }}" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </li>
+            {% endif %}
+        </ul>
+    </nav>
+{% endif %}

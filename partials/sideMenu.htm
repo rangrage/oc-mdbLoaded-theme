@@ -1,0 +1,28 @@
+description = "StaticPages SubMenu"
+
+[viewBag]
+
+[staticMenu]
+==
+<?php
+function onEnd()
+{
+    $this['parentPage'] = explode("/", substr($this->page->url,1));
+    $this['getMenu'] = $this['parentPage'][0];
+    $this['subMenu'] = ucwords(str_replace("-"," ",$this['getMenu']));
+}
+?>
+==
+{% set links = staticMenu.resetMenu( getMenu ) %}
+{% if staticMenu.menuItems %}
+    
+    <div class="widget-wrapper">
+        <h4 class="dark-grey-text">{{ subMenu|replace({'-': ' '}) }}</h4>
+        <div class="list-group">
+            {% for item in staticMenu.menuItems %}
+                <a href="{{ item.url }}" class="list-group-item {% if this.page.title == item.title %}active{% endif %}">{{ item.title }}</a>
+            {% endfor %}
+        </div>
+    </div>
+
+{% endif %}

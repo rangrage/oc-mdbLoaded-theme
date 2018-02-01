@@ -1,0 +1,22 @@
+description = "Footer"
+
+[viewBag]
+==
+{% partial 'footer/4-column' %}
+
+<script src="{{ [
+        'assets/js/jquery-3.2.1.min.js',
+        'assets/js/popper.js',
+        'assets/js/bootstrap.min.js',
+        'assets/js/mdb.min.js'
+    ]|theme }}"></script>
+
+    {% framework extras %}
+    {% scripts %}
+
+<script>
+    new WOW().init();
+</script>
+
+</body>
+</html>
