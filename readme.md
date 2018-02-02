@@ -5,9 +5,10 @@ Free Modern and Clean OctoberCMS Theme based on [MDBootstrap](https://mdbootstra
 - 74 CSS animations
 - SASS files
 - Templates
+- Easy to use and customize
 - Tutorials and many more.
 
-All fully responsive. All compatible with different browsers.
+Trusted by 400 000 + developers and designers. Used by companies like Nike, Samsung, Amazon, Ikea and Sony. Fully responsive and compatible with different browsers.
 
 ### Documentation
 
