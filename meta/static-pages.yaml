@@ -9,6 +9,7 @@ static-pages:
         layouts-full-image-carousel: {  }
         layouts-half-page-carousel: {  }
         layouts-jumbotron: {  }
+        layouts-team-profiles: {  }
     subpages:
         subpages-child-one: {  }
         subpages-child-two: {  }

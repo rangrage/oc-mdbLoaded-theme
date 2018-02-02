@@ -1,0 +1,113 @@
+description = "Team Profiles"
+
+[staticPage]
+useContent = 0
+default = 0
+==
+{% partial 'site/head' %}
+{% partial 'site/nav' %}
+
+{variable name="featuredTitle" label="Title" tab="Featured Image" type="text"}{/variable}
+{variable name="featuredText" label="Intro Text" tab="Featured Image" type="text"}{/variable}
+{variable name="useBtn" label="Use Button" tab="Featured Image" type="switch"}{/variable}
+{variable name="btnText" label="Button Text" tab="Featured Image" type="text"}{/variable}
+{variable name="btnLink" label="Button Link" tab="Featured Image" type="text"}{/variable}
+{variable name="featuredImage" label="Featured Image" tab="Featured Image" type="mediafinder" mode="image"}{/variable}
+<div class="container my-3">
+    <div class="row">
+        <div class="col-12">
+            <h2 class="h2-responsive text-center">{{ this.page.title }}</h2>
+            <hr>
+        </div>
+    </div>
+
+    <div class="row mb-5 wow fadeIn" data-wow-delay="0.4s">
+        <div class="col-md-12">
+            <div class="card card-image"
+                 style="background-image: url({% if featuredImage %}{{ featuredImage|media }}{% else %}'https://mdbootstrap.com/img/Photos/Others/gradient1.jpg'{% endif %});">
+                <div class="text-white text-center d-flex align-items-center py-5 px-4 my-5">
+                    <div>
+                        <h1 class="card-title pt-2 mb-4 font-bold"><strong>{{ featuredTitle }}</strong></h1>
+                        <p class="mx-5 mb-5">{{ featuredText }}</p>
+                        {% if useBtn %}
+                            <a href="{{ btnLink }}" class="btn btn-outline-white btn-rounded"><i class="fa fa-clone left"></i> {{ btnText }}</a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        {repeater name="Profiles" tab="Profiles" prompt="Add another item"}
+        {variable name="profileName" label="Name" type="text"}{/variable}
+        {variable name="profileTitle" label="Title" type="text"}{/variable}
+        {variable name="profileBio" label="Bio" type="richeditor"}{/variable}
+        {variable name="profileImage" label="Profile Image" type="mediafinder" mode="image"}{/variable}
+        <div class="col-lg-3 col-md-6">
+            <!--Card-->
+            <div class="card mb-r light-grey">
+                <!--Card image-->
+                <div class="view">
+                    <img src="{{ fields.profileImage|media }}" class="img-fluid mx-auto" alt="{{ fields.profileName }}">
+                    <div class="mask waves-effect waves-light"></div>
+                </div>
+                <!--Card content-->
+                <div class="p-3">
+                    <!--Title-->
+                    <h5 class="card-title">{{ fields.profileName }}</h5>
+                    <!--Text-->
+                    <p class="card-text text-muted">{{ fields.profileTitle }}</p>
+                </div>
+                <!--Card footer-->
+                <div class="card-footer pb-1">
+                    <button type="button" class="btn btn-primary btn-sm float-right"
+                            data-toggle="modal"
+                            data-target="#{{ fields.profileName|replace({' ':'-'})|replace({'(':'-'})|replace({')':''}) }}">
+                        View Bio
+                    </button>
+                </div>
+                <!--/.Card content-->
+            </div>
+            <!--/.Card-->
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="{{ fields.profileName|replace({' ':'-'})|replace({'(':'-'})|replace({')':''}) }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <!--Content-->
+                <div class="modal-content">
+                    <!--Header-->
+                    <div class="modal-header">
+                        <h4 class="modal-title w-100" id="myModalLabel">
+                            {{ fields.profileName }}
+                            {% if fields.profileTitle %}
+                                <small class="text-muted">- {{ fields.profileTitle }}</small>
+                            {% endif %}
+                        </h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <!--Body-->
+                    <div class="modal-body">
+                        <img src="{{ fields.profileImage|media }}" class="img-thumbnail mx-auto d-block" alt="{{ fields.profileName }}">
+                        <br>
+                        {{ fields.profileBio|raw }}
+                    </div>
+                    <!--Footer-->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-sm btn-primary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+                <!--/.Content-->
+            </div>
+        </div>
+        <!-- Modal -->
+        {/repeater}
+    </div>
+</div>
+
+{% partial 'site/footer' %}
