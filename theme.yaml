@@ -1,7 +1,7 @@
 name: 'MDB Loaded'
 description: 'Starter theme with some basic MDB Layouts loaded.'
 author: Zanor
-homepage: ''
+homepage: 'https://mdbootstrap.com/?utm_source=4e323a&utm_id=4e323a'
 code: zanor-mdb-loaded
 require:
     - RainLab.Pages
