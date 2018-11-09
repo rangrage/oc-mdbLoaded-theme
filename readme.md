@@ -1,4 +1,4 @@
-Free Modern and Clean OctoberCMS Theme based on [MDBootstrap](https://mdbootstrap.com/legacy/jquery/4.4.5/?utm_source=4e323a&utm_id=4e323a) (Material Design for Bootstrap) which is a powerful CSS Framework coupled with the best of *Bootstrap* and *Material Design*. 
+Free Modern and Clean OctoberCMS Theme based on [MDBootstrap](https://mdbootstrap.com/material-design-for-bootstrap/?utm_ref_id=22105) (Material Design for Bootstrap) which is a powerful CSS Framework coupled with the best of *Bootstrap* and *Material Design*. 
 
 - 400+ material UI elements
 - 600+ material icons 
@@ -14,4 +14,4 @@ Trusted by 400 000 + developers and designers. Used by companies like Nike, Sams
 
 * This theme is based on MDB v4.4.5
 
-Full documentation can be found on the [MDBootstrap](https://mdbootstrap.com/legacy/jquery/4.4.5/?utm_source=4e323a&utm_id=4e323a) website.
+Full documentation can be found on the [MDBootstrap](https://mdbootstrap.com/legacy/jquery/4.4.5/?utm_ref_id=22105) website.
